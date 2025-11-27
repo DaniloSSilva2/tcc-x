@@ -1,4 +1,4 @@
-// app/_layout.jsx (Este é o novo ficheiro que estamos a criar)
+// app/_layout.jsx
 
 import React from 'react';
 import { Stack } from 'expo-router';
@@ -6,15 +6,18 @@ import { Stack } from 'expo-router';
 import { AuthProvider } from '../context/AuthContext'; 
 
 export default function RootLayout() {
-  return (
-    // O AuthProvider "abraça" toda a aplicação aqui
-    <AuthProvider>
-      <Stack screenOptions={{ headerShown: false }}>
-        {/* Isto diz ao layout para gerir as nossas telas */}
-        <Stack.Screen name="index" /> 
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="ordens/[id]" />
-      </Stack>
-    </AuthProvider>
-  );
+  return (
+    // O AuthProvider "abraça" toda a aplicação aqui
+    <AuthProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        {/* Rotas de Nível Superior e Grupos */}
+        <Stack.Screen name="index" /> 
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="ordens/[id]" />
+        
+        {/* 👈 ADIÇÃO DA TELA DE CHAT */}
+        <Stack.Screen name="chat" /> 
+      </Stack>
+    </AuthProvider>
+  );
 }
